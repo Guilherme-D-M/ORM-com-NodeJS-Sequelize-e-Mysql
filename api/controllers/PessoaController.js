@@ -1,7 +1,7 @@
 const database = require('../models')
 
 class PessoaController {
-    //busca todos registros
+    //Busca todos registros
     static async pegaTodasAsPessoas(req, res){
         try{
             const todasAsPessoas = await database.Pessoas.findAll()
@@ -10,7 +10,8 @@ class PessoaController {
             return res.status(500).json(error.message)
         }
     }
-    //busca 1 registro
+    
+    //Busca 1 registro
     static async pegaUmaPessoa (req, res) {
         const {id} = req.params
         try{
@@ -26,7 +27,7 @@ class PessoaController {
         }
     }
 
-        //Cria 1 uma nova pessoa
+    //Cria 1 um novo registro
     static async criaPessoa (req, res) {
         const novaPessoa = req.body
         try{
@@ -38,7 +39,7 @@ class PessoaController {
         }
     }
 
-    //Atualiza uma pessoa
+    //Atualiza registro
     static async atualizaPessoa (req, res) {
         const novasInfos = req.body
         const {id} = req.params
@@ -52,7 +53,7 @@ class PessoaController {
         }
     }
 
-    //deleta pessoa
+    //Deleta registro
     static async deletaPessoa(req, res) {
         const {id} = req.params
         try{
